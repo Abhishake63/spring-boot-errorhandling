@@ -10,7 +10,7 @@ import com.springboot.errorhandling.exception.BadRequestException;
 import com.springboot.errorhandling.exception.GlobalExceptionHandler;
 
 @RestController
-public class HelloController {
+public class HomeController {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
