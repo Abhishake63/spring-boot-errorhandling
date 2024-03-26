@@ -12,19 +12,12 @@ public class GlobalExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(BadRequestException.class)
+    @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleBadRequestException(BadRequestException ex) {
-        logger.error("Call handleBadRequestException: {}", ex.getMessage());
+    public ErrorResponse handleIllegalArgumentRequestException(IllegalArgumentException ex) {
+        logger.error("Call handleIllegalArgumentRequestException: {}", ex.getMessage());
         return new ErrorResponse(HttpStatus.BAD_REQUEST.getReasonPhrase(), ex.getMessage(),
                 HttpStatus.BAD_REQUEST.value());
-    }
-
-    @ExceptionHandler(NotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponse handleNotFoundException(NotFoundException ex) {
-        logger.error("Call handleNotFoundException: {}", ex.getMessage());
-        return new ErrorResponse(HttpStatus.NOT_FOUND.getReasonPhrase(), ex.getMessage(), HttpStatus.NOT_FOUND.value());
     }
 
     @ExceptionHandler(Exception.class)
